@@ -1,0 +1,36 @@
+--date functions
+
+select convert(date, convert(datetime, '10-01-2023' , 101), 120) as date;
+
+select format(convert(datetime, '10-01-2023 01:10:10' , 101), 'HH:mm:ss') as TimeOnly; 
+       
+select format(123456789, '##-##-#####')as formatted; 
+
+select convert(datetime, current_timestamp) as CurrentDateTime; 
+
+select convert(datetime, '2023-01-10T12:34:56' , 126) as MyDateTime;
+
+select datediff(day, '2023-01-10', '2023-02-15') as DayDifference;
+
+select datediff(hour, '2023-01-10 08:30:00', '2023-01-12 15:45:00') as HourDifference;
+
+select convert(varchar,getdate(), 101) as FormattedDate;
+
+select format(getdate(), 'MM/dd/yyyy (dddd)') as CurrentDateWithDayOfWeek;
+
+select convert(date, '2023-04-10', 23) as Converted;
+
+select datediff(year, '1995-08-20', getdate()) as Age;
+
+select eomonth(getdate()) as LastDayOfMonth;
+
+select format(getdate(), 'HH:mm:ss') as CurrentTime24HourFormat;
+
+select dateadd(month, datediff(month, 0, getdate()) + 1, 0) as FirstDayOfNextMonth;
+
+select datediff(year, '1985-12-10', getdate()) as Years,datediff(month, '1985-12-10', getdate()) % 12 as Months,
+datediff(day, dateadd(month, datediff(month, '1985-12-10', getdate()), '1985-12-10'), getdate()) as Days;
+
+select dateadd(day, -7, getdate()) as SevenDaysAgo;
+
+select datediff(minute, '2023-02-10 08:30:00', '2023-02-10 10:45:00') as MinuteDifference;
